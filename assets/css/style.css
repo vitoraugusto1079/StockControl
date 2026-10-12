@@ -660,51 +660,6 @@ body {
     background-color: var(--brand-green-hover);
 }
 
-.login-demo-credentials {
-    margin-top: 2rem;
-    padding: 1.1rem;
-    background-color: var(--gray-50);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--gray-200);
-}
-
-.demo-title {
-    font-size: 0.8rem;
-    color: var(--gray-700);
-    margin-bottom: 0.65rem;
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-}
-
-.demo-buttons {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.btn-demo-fill {
-    flex: 1;
-    min-width: 140px;
-    padding: 0.45rem 0.65rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--brand-navy);
-    background: #ffffff;
-    border: 1px solid var(--gray-300);
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    transition: all 0.15s;
-    text-align: center;
-    font-family: inherit;
-}
-
-.btn-demo-fill:hover {
-    background: var(--brand-blue-light);
-    border-color: var(--brand-blue);
-    color: var(--brand-blue);
-}
-
 /* -------------------------------------------------------------
    FORMULÁRIOS & CAMPOS
    ------------------------------------------------------------- */

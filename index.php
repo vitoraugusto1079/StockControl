@@ -102,30 +102,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <button type="submit" class="btn btn-primary btn-block btn-login">
-                Entrar no Sistema →
+                Entrar no Sistema
             </button>
         </form>
-
-        <div class="login-demo-credentials">
-            <div class="demo-title">
-                <span>🔑</span> <strong>Acesso Rápido para Avaliação:</strong>
-            </div>
-            <div class="demo-buttons">
-                <button type="button" class="btn-demo-fill" onclick="preencherLogin('admin@stockcontrol.com', 'admin123')">
-                    👑 Preencher Administrador
-                </button>
-                <button type="button" class="btn-demo-fill" onclick="preencherLogin('operador@stockcontrol.com', 'user123')">
-                    👤 Preencher Operador
-                </button>
-            </div>
-        </div>
     </div>
-
-    <script>
-        function preencherLogin(email, senha) {
-            document.getElementById('email').value = email;
-            document.getElementById('senha').value = senha;
-        }
-    </script>
 </body>
 </html>
