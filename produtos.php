@@ -40,14 +40,18 @@ try {
         <p class="text-muted">Acompanhe itens cadastrados, níveis de estoque e observações em tempo real.</p>
     </div>
     <?php if (isAdmin()): ?>
-        <a href="produto_novo.php" class="btn btn-success">+ Cadastrar Novo Produto</a>
+        <a href="produto_novo.php" class="btn btn-success">
+            <i data-lucide="plus" class="icon-btn"></i> Novo Produto
+        </a>
     <?php endif; ?>
 </div>
 
 <!-- CARDS DE MÉTRICAS (ESTILO ENTERPRISE SAAS) -->
 <div class="kpi-grid">
     <div class="kpi-card">
-        <div class="kpi-icon kpi-blue">📦</div>
+        <div class="kpi-icon kpi-blue">
+            <i data-lucide="package"></i>
+        </div>
         <div class="kpi-content">
             <span class="kpi-label">Produtos Ativos</span>
             <strong class="kpi-value"><?= $totalProdutos ?></strong>
@@ -55,7 +59,9 @@ try {
     </div>
 
     <div class="kpi-card">
-        <div class="kpi-icon kpi-green">✅</div>
+        <div class="kpi-icon kpi-green">
+            <i data-lucide="check-circle-2"></i>
+        </div>
         <div class="kpi-content">
             <span class="kpi-label">Em Estoque</span>
             <strong class="kpi-value"><?= $itensEmEstoque ?></strong>
@@ -63,7 +69,9 @@ try {
     </div>
 
     <div class="kpi-card">
-        <div class="kpi-icon kpi-red">⚠️</div>
+        <div class="kpi-icon kpi-red">
+            <i data-lucide="alert-triangle"></i>
+        </div>
         <div class="kpi-content">
             <span class="kpi-label">Esgotados</span>
             <strong class="kpi-value"><?= $itensEsgotados ?></strong>
@@ -71,7 +79,9 @@ try {
     </div>
 
     <div class="kpi-card">
-        <div class="kpi-icon kpi-purple">💰</div>
+        <div class="kpi-icon kpi-purple">
+            <i data-lucide="coins"></i>
+        </div>
         <div class="kpi-content">
             <span class="kpi-label">Valor em Estoque</span>
             <strong class="kpi-value">R$ <?= number_format($valorTotalEstoque, 2, ',', '.') ?></strong>
@@ -82,7 +92,7 @@ try {
 <!-- BARRA DE PESQUISA RÁPIDA -->
 <div class="toolbar-search">
     <div class="search-input-wrapper">
-        <span class="search-icon">🔍</span>
+        <i data-lucide="search" class="search-icon"></i>
         <input 
             type="text" 
             id="filtro-busca" 
@@ -90,13 +100,17 @@ try {
             oninput="filtrarProdutosNaTela(this.value)"
         >
     </div>
+</div>
+
 <?php if (empty($produtos)): ?>
     <div class="empty-state">
-        <div class="empty-icon">📭</div>
+        <div class="empty-icon"><i data-lucide="inbox"></i></div>
         <h3>Nenhum produto ativo encontrado</h3>
         <p>Não há produtos ativos cadastrados no momento.</p>
         <?php if (isAdmin()): ?>
-            <a href="produto_novo.php" class="btn btn-success">Cadastrar Primeiro Produto</a>
+            <a href="produto_novo.php" class="btn btn-success">
+                <i data-lucide="plus" class="icon-btn"></i> Cadastrar Primeiro Produto
+            </a>
         <?php endif; ?>
     </div>
 <?php else: ?>
@@ -140,13 +154,13 @@ try {
                        class="btn btn-outline-primary btn-sm btn-comentarios" 
                        data-produto-id="<?= (int)$p['id'] ?>"
                        data-produto-nome="<?= htmlspecialchars($p['nome']) ?>">
-                        💬 Comentários
+                        <i data-lucide="message-square" class="icon-btn"></i> Comentários
                     </a>
 
                     <!-- Botão de movimentação rápida para agilizar entrada/saída -->
                     <a href="movimentacoes.php?produto_id=<?= (int)$p['id'] ?>" 
                        class="btn btn-outline-secondary btn-sm" title="Registrar Entrada/Saída">
-                        ↕ Movimentar
+                        <i data-lucide="arrow-left-right" class="icon-btn"></i> Movimentar
                     </a>
 
                     <?php if (isAdmin()): ?>
@@ -155,7 +169,7 @@ try {
                               onsubmit="return confirmarExclusao(event, this);">
                             <input type="hidden" name="produto_id" value="<?= (int)$p['id'] ?>">
                             <button type="submit" class="btn btn-danger btn-sm">
-                                🗑️ Excluir
+                                <i data-lucide="trash-2" class="icon-btn"></i> Excluir
                             </button>
                         </form>
                     <?php endif; ?>

@@ -102,9 +102,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <button type="submit" class="btn btn-primary btn-block btn-login">
-                Entrar no Sistema
+                <i data-lucide="log-in" class="icon-btn"></i> Entrar no Sistema
             </button>
         </form>
     </div>
+
+    <script src="assets/js/lucide.min.js"></script>
+    <script>
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+    </script>
 </body>
 </html>

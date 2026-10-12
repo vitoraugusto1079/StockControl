@@ -113,22 +113,24 @@ require_once __DIR__ . '/includes/header.php';
 
 <div class="page-heading">
     <div>
-        <h2>↕ Histórico e Registro de Movimentações</h2>
+        <h2>Histórico e Registro de Movimentações</h2>
         <p class="text-muted">Registre entradas, saídas e consulte o histórico detalhado de operações.</p>
     </div>
-    <a href="produtos.php" class="btn btn-secondary">← Voltar para Produtos</a>
+    <a href="produtos.php" class="btn btn-secondary">
+        <i data-lucide="arrow-left" class="icon-btn"></i> Voltar para Produtos
+    </a>
 </div>
 
 <?php if (!empty($erro)): ?>
     <div class="alert alert-danger" role="alert">
-        <span>⚠️</span> <?= htmlspecialchars($erro) ?>
+        <i data-lucide="alert-circle" class="icon-alert"></i> <?= htmlspecialchars($erro) ?>
     </div>
 <?php endif; ?>
 
 <div class="movement-layout">
     <!-- FORMULÁRIO DE REGISTRO DE ENTRADA / SAÍDA -->
     <div class="form-card movement-form-card">
-        <h3>➕ Nova Movimentação</h3>
+        <h3>Nova Movimentação</h3>
         <p class="text-muted">Ajuste o estoque físico de um item ativo.</p>
 
         <form action="movimentacoes.php<?= $produtoFiltroId ? '?produto_id=' . $produtoFiltroId : '' ?>" method="POST">
@@ -201,9 +203,11 @@ require_once __DIR__ . '/includes/header.php';
                             <tr>
                                 <td><?= date('d/m/Y H:i', strtotime($m['data_movimentacao'])) ?></td>
                                 <td>
-                                    <span class="badge-movement <?= $m['tipo'] === 'entrada' ? 'badge-in' : 'badge-out' ?>">
-                                        <?= $m['tipo'] === 'entrada' ? '↑ ENTRADA' : '↓ SAÍDA' ?>
-                                    </span>
+                                    <?php if ($m['tipo'] === 'entrada'): ?>
+                                        <span class="badge-movement badge-in"><i data-lucide="arrow-down-left" class="icon-inline"></i> ENTRADA</span>
+                                    <?php else: ?>
+                                        <span class="badge-movement badge-out"><i data-lucide="arrow-up-right" class="icon-inline"></i> SAÍDA</span>
+                                    <?php endif; ?>
                                 </td>
                                 <td><strong><?= htmlspecialchars($m['produto_nome']) ?></strong></td>
                                 <td><?= (int)$m['quantidade'] ?> un.</td>

@@ -108,15 +108,17 @@ require_once __DIR__ . '/includes/header.php';
 
 <div class="page-heading">
     <div>
-        <h2>➕ Cadastrar Novo Produto</h2>
+        <h2>Cadastrar Novo Produto</h2>
         <p class="text-muted">Preencha todos os campos abaixo para disponibilizar o item no estoque.</p>
     </div>
-    <a href="produtos.php" class="btn btn-secondary">← Voltar para a Lista</a>
+    <a href="produtos.php" class="btn btn-secondary">
+        <i data-lucide="arrow-left" class="icon-btn"></i> Voltar para a Lista
+    </a>
 </div>
 
 <?php if (!empty($erro)): ?>
     <div class="alert alert-danger" role="alert">
-        <span>⚠️</span> <?= htmlspecialchars($erro) ?>
+        <i data-lucide="alert-circle" class="icon-alert"></i> <?= htmlspecialchars($erro) ?>
     </div>
 <?php endif; ?>
 
@@ -170,7 +172,7 @@ require_once __DIR__ . '/includes/header.php';
             <a href="produtos.php" class="btn btn-secondary">Cancelar</a>
             <!-- Regra 8.2: Botão "Cadastrar" habilitado apenas se todos os campos preenchidos -->
             <button type="submit" id="btn-cadastrar-produto" class="btn btn-success" disabled>
-                ✓ Cadastrar Produto
+                <i data-lucide="check" class="icon-btn"></i> Cadastrar Produto
             </button>
         </div>
     </form>

@@ -158,7 +158,7 @@ function renderizarConteudoModalComentarios(dados) {
     let html = `
         <!-- Formulário para cadastro de novo comentário (Regra 7) -->
         <div class="modal-new-comment-box">
-            <h4>➕ Novo Comentário</h4>
+            <h4><i data-lucide="plus-circle" class="icon-inline"></i> Novo Comentário</h4>
             <div id="modal-alert-box" style="display: none;"></div>
             <form id="form-modal-comentario" onsubmit="enviarNovoComentarioModal(event)">
                 <div class="form-group">
@@ -171,8 +171,8 @@ function renderizarConteudoModalComentarios(dados) {
                     ></textarea>
                 </div>
                 <div class="modal-comment-actions">
-                    <button type="submit" class="btn btn-primary btn-sm" id="btn-salvar-comentario-modal">
-                        Cadastrar Comentário
+                    <button type="submit" class="btn btn-success btn-sm" id="btn-salvar-comentario-modal">
+                        <i data-lucide="send" class="icon-btn"></i> Cadastrar Comentário
                     </button>
                 </div>
             </form>
@@ -196,10 +196,11 @@ function renderizarConteudoModalComentarios(dados) {
                 <div class="comment-bubble">
                     <div class="comment-bubble-header">
                         <div class="comment-author">
-                            <strong>👤 ${c.usuario_nome}</strong>
+                            <i data-lucide="user" class="icon-inline"></i>
+                            <strong>${c.usuario_nome}</strong>
                             <span class="user-role-badge ${roleClass}">${roleNome}</span>
                         </div>
-                        <time class="comment-date">🕒 ${c.data_formatada}</time>
+                        <time class="comment-date"><i data-lucide="clock" class="icon-inline"></i> ${c.data_formatada}</time>
                     </div>
                     <div class="comment-text">${c.texto.replace(/\\n/g, '<br>')}</div>
                 </div>
@@ -210,6 +211,10 @@ function renderizarConteudoModalComentarios(dados) {
 
     html += `</div>`;
     modalBody.innerHTML = html;
+
+    if (window.lucide) {
+        lucide.createIcons();
+    }
 }
 
 async function enviarNovoComentarioModal(event) {
@@ -302,11 +307,14 @@ function filtrarProdutosNaTela(termo) {
             emptySearch.id = 'search-empty-state';
             emptySearch.className = 'empty-state-search';
             emptySearch.innerHTML = `
-                <div class="empty-icon">🔍</div>
+                <div class="empty-icon"><i data-lucide="search-x"></i></div>
                 <h3>Nenhum produto encontrado</h3>
                 <p>Nenhum item corresponde ao termo "<strong>${termo}</strong>".</p>
             `;
             grid.parentNode.insertBefore(emptySearch, grid.nextSibling);
+            if (window.lucide) {
+                lucide.createIcons();
+            }
         }
     } else if (emptySearch) {
         emptySearch.remove();

@@ -7,6 +7,12 @@
         </div>
     </footer>
 
+    <script src="assets/js/lucide.min.js"></script>
+    <script>
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+    </script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>

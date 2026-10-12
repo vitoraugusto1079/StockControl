@@ -36,18 +36,18 @@ $flashError = getFlash('error');
 
             <nav class="nav-menu">
                 <a href="produtos.php" class="nav-item <?= basename($_SERVER['PHP_SELF']) === 'produtos.php' ? 'active' : '' ?>">
-                    <span>📦</span> Produtos
+                    <i data-lucide="package" class="icon-nav"></i> Produtos
                 </a>
                 
                 <?php if (isAdmin()): ?>
                     <!-- Menu 'Novo produto' visível apenas para administrador -->
                     <a href="produto_novo.php" class="nav-item <?= basename($_SERVER['PHP_SELF']) === 'produto_novo.php' ? 'active' : '' ?>">
-                        <span>➕</span> Novo Produto
+                        <i data-lucide="plus-circle" class="icon-nav"></i> Novo Produto
                     </a>
                 <?php endif; ?>
 
                 <a href="movimentacoes.php" class="nav-item <?= basename($_SERVER['PHP_SELF']) === 'movimentacoes.php' ? 'active' : '' ?>">
-                    <span>↕</span> Movimentações
+                    <i data-lucide="arrow-left-right" class="icon-nav"></i> Movimentações
                 </a>
             </nav>
 
@@ -58,12 +58,16 @@ $flashError = getFlash('error');
                 <div class="user-info">
                     <span class="user-name"><?= htmlspecialchars($usuarioLogado['nome']) ?></span>
                     <span class="user-role-badge <?= isAdmin() ? 'badge-admin' : 'badge-user' ?>">
-                        <?= isAdmin() ? '★ Administrador' : '● Operador' ?>
+                        <?php if (isAdmin()): ?>
+                            <i data-lucide="shield-check" class="icon-badge"></i> Administrador
+                        <?php else: ?>
+                            <i data-lucide="user" class="icon-badge"></i> Operador
+                        <?php endif; ?>
                     </span>
                 </div>
                 <!-- Botão de logout -->
                 <a href="logout.php" class="btn btn-outline-danger btn-sm" title="Encerrar sessão">
-                    Sair
+                    <i data-lucide="log-out" class="icon-btn"></i> Sair
                 </a>
             </div>
         </div>

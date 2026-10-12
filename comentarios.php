@@ -119,29 +119,31 @@ require_once __DIR__ . '/includes/header.php';
 
 <div class="page-heading">
     <div>
-        <h2>💬 Observações & Comentários</h2>
+        <h2>Observações & Comentários</h2>
         <p class="text-muted">Produto: <strong><?= htmlspecialchars($produto['nome']) ?></strong></p>
     </div>
     <!-- Regra 6 e 7.2: Botão para fechar e voltar à lista de produtos -->
-    <a href="produtos.php" class="btn btn-secondary">✕ Fechar e Voltar à Lista</a>
+    <a href="produtos.php" class="btn btn-secondary">
+        <i data-lucide="arrow-left" class="icon-btn"></i> Fechar e Voltar
+    </a>
 </div>
 
 <?php if (!empty($mensagemSucesso)): ?>
     <div class="alert alert-success" role="alert">
-        <span>✅</span> <?= htmlspecialchars($mensagemSucesso) ?>
+        <i data-lucide="check-circle" class="icon-alert"></i> <?= htmlspecialchars($mensagemSucesso) ?>
     </div>
 <?php endif; ?>
 
 <?php if (!empty($mensagemErro)): ?>
     <div class="alert alert-danger" role="alert">
-        <span>⚠️</span> <?= htmlspecialchars($mensagemErro) ?>
+        <i data-lucide="alert-circle" class="icon-alert"></i> <?= htmlspecialchars($mensagemErro) ?>
     </div>
 <?php endif; ?>
 
 <div class="comments-layout">
     <!-- SEÇÃO: CADASTRO DE NOVO COMENTÁRIO (Regra 7) -->
     <div class="comment-new-card" id="form-cadastro-comentario">
-        <h3>➕ Adicionar Novo Comentário</h3>
+        <h3>Adicionar Novo Comentário</h3>
         <p class="text-muted">Insira notas sobre inspeção, recebimento, defeitos ou logística.</p>
 
         <form action="comentarios.php?produto_id=<?= (int)$produto['id'] ?>" method="POST">
@@ -164,7 +166,9 @@ require_once __DIR__ . '/includes/header.php';
                 <a href="produtos.php" class="btn btn-secondary">Fechar e Voltar</a>
                 
                 <!-- Regra 7.3: Botão "Cadastrar" insere comentário -->
-                <button type="submit" class="btn btn-success">✓ Cadastrar</button>
+                <button type="submit" class="btn btn-success">
+                    <i data-lucide="send" class="icon-btn"></i> Cadastrar
+                </button>
             </div>
         </form>
     </div>
@@ -186,7 +190,7 @@ require_once __DIR__ . '/includes/header.php';
                     <div class="comment-bubble">
                         <div class="comment-bubble-header">
                             <div class="comment-author">
-                                <span class="author-avatar">👤</span>
+                                <i data-lucide="user" class="icon-inline"></i>
                                 <strong><?= htmlspecialchars($c['usuario_nome']) ?></strong>
                                 <span class="user-role-badge <?= $c['usuario_perfil'] === 'admin' ? 'badge-admin' : 'badge-user' ?>">
                                     <?= $c['usuario_perfil'] === 'admin' ? 'Administrador' : 'Operador' ?>
@@ -194,7 +198,7 @@ require_once __DIR__ . '/includes/header.php';
                             </div>
                             <!-- Regra 6: Data do comentário -->
                             <time class="comment-date" datetime="<?= $c['data_criacao'] ?>">
-                                🕒 <?= date('d/m/Y \à\s H:i', strtotime($c['data_criacao'])) ?>
+                                <i data-lucide="clock" class="icon-inline"></i> <?= date('d/m/Y \à\s H:i', strtotime($c['data_criacao'])) ?>
                             </time>
                         </div>
                         <!-- Regra 6: Texto do comentário -->
