@@ -164,7 +164,7 @@ require_once __DIR__ . '/includes/header.php';
                 <a href="produtos.php" class="btn btn-secondary">Fechar e Voltar</a>
                 
                 <!-- Regra 7.3: Botão "Cadastrar" insere comentário -->
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <button type="submit" class="btn btn-success">✓ Cadastrar</button>
             </div>
         </form>
     </div>

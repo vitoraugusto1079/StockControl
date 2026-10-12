@@ -169,8 +169,8 @@ require_once __DIR__ . '/includes/header.php';
         <div class="form-actions">
             <a href="produtos.php" class="btn btn-secondary">Cancelar</a>
             <!-- Regra 8.2: Botão "Cadastrar" habilitado apenas se todos os campos preenchidos -->
-            <button type="submit" id="btn-cadastrar-produto" class="btn btn-primary" disabled>
-                Cadastrar Produto
+            <button type="submit" id="btn-cadastrar-produto" class="btn btn-success" disabled>
+                ✓ Cadastrar Produto
             </button>
         </div>
     </form>

@@ -272,3 +272,43 @@ async function enviarNovoComentarioModal(event) {
         btnSubmit.textContent = 'Cadastrar Comentário';
     }
 }
+
+/**
+ * Filtro em tempo real de produtos pelo nome ou descrição
+ */
+function filtrarProdutosNaTela(termo) {
+    const busca = termo.toLowerCase().trim();
+    const cards = document.querySelectorAll('.product-card');
+    let encontrados = 0;
+
+    cards.forEach(card => {
+        const titulo = card.querySelector('.product-title')?.textContent.toLowerCase() || '';
+        const desc = card.querySelector('.product-description')?.textContent.toLowerCase() || '';
+
+        if (titulo.includes(busca) || desc.includes(busca)) {
+            card.style.display = 'flex';
+            encontrados++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    let emptySearch = document.getElementById('search-empty-state');
+    const grid = document.querySelector('.products-grid');
+
+    if (encontrados === 0 && cards.length > 0) {
+        if (!emptySearch) {
+            emptySearch = document.createElement('div');
+            emptySearch.id = 'search-empty-state';
+            emptySearch.className = 'empty-state-search';
+            emptySearch.innerHTML = `
+                <div class="empty-icon">🔍</div>
+                <h3>Nenhum produto encontrado</h3>
+                <p>Nenhum item corresponde ao termo "<strong>${termo}</strong>".</p>
+            `;
+            grid.parentNode.insertBefore(emptySearch, grid.nextSibling);
+        }
+    } else if (emptySearch) {
+        emptySearch.remove();
+    }
+}

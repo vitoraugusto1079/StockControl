@@ -56,14 +56,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - StockControl</title>
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="login-body">
     <div class="login-card">
         <div class="login-header">
-            <div class="brand-badge">📦</div>
-            <h1>StockControl</h1>
-            <p>Controle de Estoque & Movimentações</p>
+            <img src="assets/img/logo.png" alt="StockControl" class="login-logo-img">
+            <p class="login-subtitle">Gestão Integrada de Estoque & Movimentações</p>
         </div>
 
         <?php if (!empty($erro)): ?>
@@ -98,16 +101,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 >
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block">Entrar no Sistema</button>
+            <button type="submit" class="btn btn-primary btn-block btn-login">
+                Entrar no Sistema →
+            </button>
         </form>
 
         <div class="login-demo-credentials">
-            <small><strong>Credenciais para Avaliação:</strong></small>
-            <ul>
-                <li><strong>Admin:</strong> <code>admin@stockcontrol.com</code> | Senha: <code>admin123</code></li>
-                <li><strong>Comum:</strong> <code>operador@stockcontrol.com</code> | Senha: <code>user123</code></li>
-            </ul>
+            <div class="demo-title">
+                <span>🔑</span> <strong>Acesso Rápido para Avaliação:</strong>
+            </div>
+            <div class="demo-buttons">
+                <button type="button" class="btn-demo-fill" onclick="preencherLogin('admin@stockcontrol.com', 'admin123')">
+                    👑 Preencher Administrador
+                </button>
+                <button type="button" class="btn-demo-fill" onclick="preencherLogin('operador@stockcontrol.com', 'user123')">
+                    👤 Preencher Operador
+                </button>
+            </div>
         </div>
     </div>
+
+    <script>
+        function preencherLogin(email, senha) {
+            document.getElementById('email').value = email;
+            document.getElementById('senha').value = senha;
+        }
+    </script>
 </body>
 </html>

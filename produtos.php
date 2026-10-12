@@ -21,33 +21,82 @@ try {
         ORDER BY id DESC
     ");
     $produtos = $stmt->fetchAll();
+    
+    // Métricas para os Cards de Resumo (Padrão Zoho/Shopify Inventory)
+    $totalProdutos = count($produtos);
+    $itensEmEstoque = count(array_filter($produtos, fn($p) => (int)$p['quantidade'] > 0));
+    $itensEsgotados = count(array_filter($produtos, fn($p) => (int)$p['quantidade'] === 0));
+    $valorTotalEstoque = array_reduce($produtos, fn($acc, $p) => $acc + ((int)$p['quantidade'] * (float)$p['preco']), 0);
 } catch (Exception $e) {
     $produtos = [];
+    $totalProdutos = $itensEmEstoque = $itensEsgotados = $valorTotalEstoque = 0;
     $erroListagem = "Erro ao carregar produtos: " . $e->getMessage();
 }
 ?>
 
 <div class="page-heading">
     <div>
-        <h2>📦 Controle de Produtos em Estoque</h2>
-        <p class="text-muted">Acompanhe itens cadastrados, níveis de estoque e observações.</p>
+        <h2>Visão Geral do Estoque</h2>
+        <p class="text-muted">Acompanhe itens cadastrados, níveis de estoque e observações em tempo real.</p>
     </div>
     <?php if (isAdmin()): ?>
-        <a href="produto_novo.php" class="btn btn-primary">+ Cadastrar Novo Produto</a>
+        <a href="produto_novo.php" class="btn btn-success">+ Cadastrar Novo Produto</a>
     <?php endif; ?>
 </div>
 
-<?php if (isset($erroListagem)): ?>
-    <div class="alert alert-danger"><?= htmlspecialchars($erroListagem) ?></div>
-<?php endif; ?>
+<!-- CARDS DE MÉTRICAS (ESTILO ENTERPRISE SAAS) -->
+<div class="kpi-grid">
+    <div class="kpi-card">
+        <div class="kpi-icon kpi-blue">📦</div>
+        <div class="kpi-content">
+            <span class="kpi-label">Produtos Ativos</span>
+            <strong class="kpi-value"><?= $totalProdutos ?></strong>
+        </div>
+    </div>
 
+    <div class="kpi-card">
+        <div class="kpi-icon kpi-green">✅</div>
+        <div class="kpi-content">
+            <span class="kpi-label">Em Estoque</span>
+            <strong class="kpi-value"><?= $itensEmEstoque ?></strong>
+        </div>
+    </div>
+
+    <div class="kpi-card">
+        <div class="kpi-icon kpi-red">⚠️</div>
+        <div class="kpi-content">
+            <span class="kpi-label">Esgotados</span>
+            <strong class="kpi-value"><?= $itensEsgotados ?></strong>
+        </div>
+    </div>
+
+    <div class="kpi-card">
+        <div class="kpi-icon kpi-purple">💰</div>
+        <div class="kpi-content">
+            <span class="kpi-label">Valor em Estoque</span>
+            <strong class="kpi-value">R$ <?= number_format($valorTotalEstoque, 2, ',', '.') ?></strong>
+        </div>
+    </div>
+</div>
+
+<!-- BARRA DE PESQUISA RÁPIDA -->
+<div class="toolbar-search">
+    <div class="search-input-wrapper">
+        <span class="search-icon">🔍</span>
+        <input 
+            type="text" 
+            id="filtro-busca" 
+            placeholder="Pesquisar por nome ou descrição do produto..." 
+            oninput="filtrarProdutosNaTela(this.value)"
+        >
+    </div>
 <?php if (empty($produtos)): ?>
     <div class="empty-state">
         <div class="empty-icon">📭</div>
         <h3>Nenhum produto ativo encontrado</h3>
         <p>Não há produtos ativos cadastrados no momento.</p>
         <?php if (isAdmin()): ?>
-            <a href="produto_novo.php" class="btn btn-primary">Cadastrar Primeiro Produto</a>
+            <a href="produto_novo.php" class="btn btn-success">Cadastrar Primeiro Produto</a>
         <?php endif; ?>
     </div>
 <?php else: ?>
