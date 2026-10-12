@@ -93,8 +93,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .login-hero-overlay {
             position: absolute !important;
             inset: 0 !important;
-            background: linear-gradient(135deg, rgba(6, 43, 94, 0.92) 0%, rgba(11, 75, 153, 0.85) 100%) !important;
-            backdrop-filter: blur(2px) !important;
+            background: linear-gradient(135deg, rgba(6, 35, 77, 0.68) 0%, rgba(11, 65, 135, 0.52) 100%) !important;
+            backdrop-filter: none !important;
             z-index: 1 !important;
         }
         .login-hero-content {
@@ -107,13 +107,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             align-items: center !important;
             gap: 0.4rem !important;
             padding: 0.35rem 0.9rem !important;
-            background: rgba(255, 255, 255, 0.16) !important;
-            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            background: rgba(255, 255, 255, 0.18) !important;
+            border: 1px solid rgba(255, 255, 255, 0.35) !important;
             border-radius: 9999px !important;
             font-size: 0.8rem !important;
             font-weight: 600 !important;
             color: #ffffff !important;
             margin-bottom: 1.75rem !important;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
         }
         .hero-title {
             font-size: 2.3rem !important;
@@ -122,12 +123,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             color: #ffffff !important;
             margin-bottom: 1.25rem !important;
             letter-spacing: -0.02em !important;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55) !important;
         }
         .hero-description {
             font-size: 1.05rem !important;
             line-height: 1.6 !important;
-            color: rgba(255, 255, 255, 0.9) !important;
+            color: #ffffff !important;
             margin-bottom: 2rem !important;
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5) !important;
         }
         .hero-features {
             display: flex !important;
@@ -141,6 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             gap: 0.75rem !important;
             font-size: 0.95rem !important;
             color: #ffffff !important;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45) !important;
         }
         .feature-icon {
             width: 20px !important;
@@ -151,13 +155,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         .hero-footer-quote {
             padding-top: 1.5rem !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.25) !important;
         }
         .hero-footer-quote blockquote {
             font-style: italic !important;
             font-size: 0.925rem !important;
             line-height: 1.5 !important;
-            color: rgba(255, 255, 255, 0.85) !important;
+            color: #ffffff !important;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45) !important;
             margin: 0 !important;
         }
         .login-form-side {
@@ -172,17 +177,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         .login-form-wrapper {
             width: 100% !important;
-            max-width: 400px !important;
+            max-width: 420px !important;
         }
         .login-header {
             text-align: left !important;
             margin-bottom: 2rem !important;
         }
         .login-logo-img {
-            height: 42px !important;
+            height: 58px !important;
             width: auto !important;
-            max-width: 200px !important;
-            margin-bottom: 1.5rem !important;
+            max-width: 270px !important;
+            margin-bottom: 1.75rem !important;
             object-fit: contain !important;
         }
         .login-header h2 {
