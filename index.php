@@ -62,49 +62,104 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="login-body">
-    <div class="login-card">
-        <div class="login-header">
-            <img src="assets/img/logo.png" alt="StockControl" class="login-logo-img">
-            <p class="login-subtitle">Gestão Integrada de Estoque & Movimentações</p>
+<body class="login-split-body">
+    <div class="login-split-container">
+        <!-- LADO ESQUERDO: BANNER VISUAL COM IMAGEM E FRASE DE IMPACTO -->
+        <div class="login-hero-side">
+            <div class="login-hero-overlay"></div>
+            <div class="login-hero-content">
+                <div class="hero-badge">
+                    <i data-lucide="shield-check" class="icon-inline"></i> Gestão Inteligente de Estoque
+                </div>
+                
+                <h1 class="hero-title">
+                    Controle total, eficiência máxima e precisão em cada movimentação.
+                </h1>
+                
+                <p class="hero-description">
+                    Centralize entradas, saídas, níveis críticos de suprimentos e histórico completo em uma plataforma ágil e segura.
+                </p>
+
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <i data-lucide="check-circle-2" class="feature-icon"></i>
+                        <span>Rastreabilidade em tempo real de operadores e produtos</span>
+                    </div>
+                    <div class="feature-item">
+                        <i data-lucide="check-circle-2" class="feature-icon"></i>
+                        <span>Histórico de entradas, saídas e notas de inspeção</span>
+                    </div>
+                    <div class="feature-item">
+                        <i data-lucide="check-circle-2" class="feature-icon"></i>
+                        <span>Visão clara para evitar perdas e rupturas no estoque</span>
+                    </div>
+                </div>
+
+                <div class="hero-footer-quote">
+                    <blockquote>
+                        “Um bom sistema de estoque evita perdas, rupturas e auxilia na tomada rápida de decisão.”
+                    </blockquote>
+                </div>
+            </div>
         </div>
 
-        <?php if (!empty($erro)): ?>
-            <div class="alert alert-danger" role="alert">
-                <span>⚠️</span> <?= htmlspecialchars($erro) ?>
-            </div>
-        <?php endif; ?>
+        <!-- LADO DIREITO: FORMULÁRIO DE LOGIN -->
+        <div class="login-form-side">
+            <div class="login-form-wrapper">
+                <div class="login-header">
+                    <img src="assets/img/logo.png" alt="StockControl" class="login-logo-img">
+                    <h2>Acesse sua Conta</h2>
+                    <p class="login-subtitle">Insira suas credenciais para gerenciar o estoque.</p>
+                </div>
 
-        <form action="index.php" method="POST" class="login-form">
-            <div class="form-group">
-                <label for="email">E-mail do Usuário</label>
-                <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    value="<?= htmlspecialchars($email) ?>" 
-                    placeholder="exemplo@stockcontrol.com" 
-                    required 
-                    autofocus
-                >
-            </div>
+                <?php if (!empty($erro)): ?>
+                    <div class="alert alert-danger" role="alert">
+                        <i data-lucide="alert-circle" class="icon-alert"></i> <?= htmlspecialchars($erro) ?>
+                    </div>
+                <?php endif; ?>
 
-            <div class="form-group">
-                <label for="senha">Senha</label>
-                <!-- Campo de senha mostra asteriscos conforme regra de negócio -->
-                <input 
-                    type="password" 
-                    id="senha" 
-                    name="senha" 
-                    placeholder="••••••••" 
-                    required
-                >
-            </div>
+                <form action="index.php" method="POST" class="login-form">
+                    <div class="form-group">
+                        <label for="email">E-mail Corporativo</label>
+                        <div class="input-icon-wrapper">
+                            <i data-lucide="mail" class="field-icon"></i>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                value="<?= htmlspecialchars($email) ?>" 
+                                placeholder="exemplo@stockcontrol.com" 
+                                required 
+                                autofocus
+                            >
+                        </div>
+                    </div>
 
-            <button type="submit" class="btn btn-primary btn-block btn-login">
-                <i data-lucide="log-in" class="icon-btn"></i> Entrar no Sistema
-            </button>
-        </form>
+                    <div class="form-group">
+                        <label for="senha">Senha de Acesso</label>
+                        <!-- Campo de senha mostra asteriscos conforme regra de negócio -->
+                        <div class="input-icon-wrapper">
+                            <i data-lucide="lock" class="field-icon"></i>
+                            <input 
+                                type="password" 
+                                id="senha" 
+                                name="senha" 
+                                placeholder="••••••••" 
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block btn-login">
+                        <i data-lucide="log-in" class="icon-btn"></i> Entrar no Sistema
+                    </button>
+                </form>
+
+                <div class="login-footer-info">
+                    <p><i data-lucide="shield" class="icon-inline"></i> Acesso seguro restrito aos usuários cadastrados no banco de dados.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="assets/js/lucide.min.js"></script>
