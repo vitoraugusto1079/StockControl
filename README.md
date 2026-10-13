@@ -1,7 +1,7 @@
 # StockControl - Sistema de Controle de Estoque
 
 > **Situação de Aprendizagem (Full Stack) - Curso Técnico em Desenvolvimento de Sistemas**  
-> **SESI / SENAI** | Professor: Luis Felipe Cardoso
+> **SESI / SENAI** | Professores: Luis Felipe Cardoso e Lucas Machado
 
 ---
 
