@@ -38,7 +38,7 @@ O banco relacional `stockcontrol` é composto por 4 tabelas interligadas por cha
 
 ---
 
-## 🔑 Credenciais para Avaliação e Testes
+## Credenciais para Avaliação e Testes
 
 | Perfil | E-mail | Senha | Permissões |
 | :--- | :--- | :--- | :--- |
