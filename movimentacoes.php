@@ -116,9 +116,6 @@ require_once __DIR__ . '/includes/header.php';
         <h2>Histórico e Registro de Movimentações</h2>
         <p class="text-muted">Registre entradas, saídas e consulte o histórico detalhado de operações.</p>
     </div>
-    <a href="produtos.php" class="btn btn-secondary">
-        <i data-lucide="arrow-left" class="icon-btn"></i> Voltar para Produtos
-    </a>
 </div>
 
 <?php if (!empty($erro)): ?>

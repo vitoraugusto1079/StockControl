@@ -111,9 +111,6 @@ require_once __DIR__ . '/includes/header.php';
         <h2>Cadastrar Novo Produto</h2>
         <p class="text-muted">Preencha todos os campos abaixo para disponibilizar o item no estoque.</p>
     </div>
-    <a href="produtos.php" class="btn btn-secondary">
-        <i data-lucide="arrow-left" class="icon-btn"></i> Voltar para a Lista
-    </a>
 </div>
 
 <?php if (!empty($erro)): ?>
