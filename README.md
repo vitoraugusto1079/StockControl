@@ -5,12 +5,6 @@
 
 ---
 
-##  Sobre o Projeto
-
-O **StockControl** é uma aplicação web desenvolvida para suprir a demanda corporativa de gerenciamento eficiente de produtos e materiais. O sistema controla estoque físico, registra histórico de entradas e saídas com rastreabilidade de responsáveis, permite comentários e anotações técnicas por item e restringe acessos administrativos.
-
----
-
 ## Estrutura do Banco de Dados (`script.sql`)
 
 O banco relacional `stockcontrol` é composto por 4 tabelas interligadas por chaves estrangeiras:
