@@ -184,9 +184,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-bottom: 2rem !important;
         }
         .login-logo-img {
-            height: 58px !important;
+            height: 75px !important;
             width: auto !important;
-            max-width: 270px !important;
+            max-width: 320px !important;
             margin-bottom: 1.75rem !important;
             object-fit: contain !important;
         }
@@ -303,12 +303,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <i data-lucide="check-circle-2" class="feature-icon"></i>
                         <span>Visão clara para evitar perdas e rupturas no estoque</span>
                     </div>
-                </div>
-
-                <div class="hero-footer-quote">
-                    <blockquote>
-                        “Um bom sistema de estoque evita perdas, rupturas e auxilia na tomada rápida de decisão.”
-                    </blockquote>
                 </div>
             </div>
         </div>

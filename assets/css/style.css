@@ -808,9 +808,9 @@ body.login-split-body {
 }
 
 .login-logo-img {
-    height: 58px;
+    height: 75px;
     width: auto;
-    max-width: 270px;
+    max-width: 320px;
     margin-bottom: 1.75rem;
     object-fit: contain;
 }
