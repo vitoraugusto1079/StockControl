@@ -157,12 +157,6 @@ try {
                         <i data-lucide="message-square" class="icon-btn"></i> Comentários
                     </a>
 
-                    <!-- Botão de movimentação rápida para agilizar entrada/saída -->
-                    <a href="movimentacoes.php?produto_id=<?= (int)$p['id'] ?>" 
-                       class="btn btn-outline-secondary btn-sm" title="Registrar Entrada/Saída">
-                        <i data-lucide="arrow-left-right" class="icon-btn"></i> Movimentar
-                    </a>
-
                     <?php if (isAdmin()): ?>
                         <!-- Botão para exclusão (administrador apenas - Regra 5.2 e 5.4) -->
                         <form action="produto_excluir.php" method="POST" class="form-excluir d-inline" 

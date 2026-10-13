@@ -101,9 +101,9 @@ body {
 }
 
 .brand-logo-img {
-    height: 38px;
+    height: 52px;
     width: auto;
-    max-width: 190px;
+    max-width: 240px;
     object-fit: contain;
     display: block;
 }
@@ -530,8 +530,16 @@ body {
     border-top: 1px solid var(--gray-200);
     display: flex;
     align-items: center;
-    gap: 0.45rem;
-    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.product-actions .btn-comentarios {
+    flex: 1;
+}
+
+.product-actions .form-excluir {
+    flex: 0 0 auto;
+    margin: 0;
 }
 
 /* -------------------------------------------------------------
