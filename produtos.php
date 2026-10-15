@@ -158,14 +158,23 @@ try {
                     </a>
 
                     <?php if (isAdmin()): ?>
-                        <!-- Botão para exclusão (administrador apenas - Regra 5.2 e 5.4) -->
-                        <form action="produto_excluir.php" method="POST" class="form-excluir d-inline" 
-                              onsubmit="return confirmarExclusao(event, this);">
-                            <input type="hidden" name="produto_id" value="<?= (int)$p['id'] ?>">
-                            <button type="submit" class="btn btn-danger btn-sm">
-                                <i data-lucide="trash-2" class="icon-btn"></i> Excluir
-                            </button>
-                        </form>
+                        <div class="product-actions-admin">
+                            <!-- Botão para editar informações e foto do produto -->
+                            <a href="produto_editar.php?id=<?= (int)$p['id'] ?>" 
+                               class="btn btn-outline-secondary btn-sm btn-editar" 
+                               title="Editar informações do produto">
+                                <i data-lucide="pencil" class="icon-btn"></i> Editar
+                            </a>
+
+                            <!-- Botão para exclusão (administrador apenas - Regra 5.2 e 5.4) -->
+                            <form action="produto_excluir.php" method="POST" class="form-excluir" 
+                                  onsubmit="return confirmarExclusao(event, this);">
+                                <input type="hidden" name="produto_id" value="<?= (int)$p['id'] ?>">
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    <i data-lucide="trash-2" class="icon-btn"></i> Excluir
+                                </button>
+                            </form>
+                        </div>
                     <?php endif; ?>
                 </div>
             </div>

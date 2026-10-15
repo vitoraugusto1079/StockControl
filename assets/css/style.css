@@ -529,17 +529,32 @@ body {
     background-color: var(--gray-50);
     border-top: 1px solid var(--gray-200);
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 0.5rem;
 }
 
 .product-actions .btn-comentarios {
+    width: 100%;
+}
+
+.product-actions-admin {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.product-actions-admin .btn-editar {
     flex: 1;
 }
 
-.product-actions .form-excluir {
-    flex: 0 0 auto;
+.product-actions-admin .form-excluir {
+    flex: 1;
     margin: 0;
+}
+
+.product-actions-admin .form-excluir .btn-danger {
+    width: 100%;
 }
 
 /* -------------------------------------------------------------
